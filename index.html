@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#"><head>
+
+		<link rel="stylesheet" type="text/css" href="css/chartist.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+		<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000">
+		<meta name="apple-mobile-web-app-title" content="AccountingTax.com">
+		<meta name="application-name" content="AccountingTax.com">
+		<meta name="msapplication-TileColor" content="#000000">
+		<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+		<meta name="theme-color" content="#000000">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="imagetoolbar" content="no" /><meta http-equiv="imagetoolbar" content="false" /><title>Retirement Calculator - AccountingTax.com</title><meta name="description" content="AccountingTax.com - Retirement Calculator" /><meta name="keywords" content="AccountingTax.com, retirement calculator" /><meta property="og:site_name" content="AccountingTax.com" /><meta property="og:title" content="Retirement Calculator - AccountingTax.com" /><meta property="og:description" content="AccountingTax.com - Retirement Calculator" /><meta property="og:locale" content="en_US" /><meta property="og:type" content="website" /><meta property="og:url" content="https://www.accountingtax.com/" /><meta property="og:image" content="https://www.accountingtax.com/img/icon-2-1400.png" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+		<script src="https://www.amcharts.com/lib/4/core.js"></script>
+		<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+		<script src="js/chartist.min.js" type="text/javascript"></script>
+		<script src="js/main-min.js?v=181226" type="text/javascript"></script>
+		</head>
+	<body>
+		<div class="page-container page-retirement template-content">
+			<div class="section-white">
+				<div class="centered">
+					<div class="dot-style-side-headline-wrapper">
+						<h2>Calculate your estimated retirement saving</h2>
+					</div>
+					<div class="retirement-calculation-container">
+						<div class="retirement-calculation-form-wrapper" style="display:none;">
+							<span class="retirement-calculation-form-headline">Enter Your Information</span>
+							<p>
+								<label for="retirement-calculation-form-age">Enter your current age.</label>
+								<input type="number" id="retirement-calculation-form-age" min="10" max="120" value="35" style="width:60px;text-align:center;">
+							</p>
+							<p>
+								<label for="retirement-calculation-form-retire-age">Enter the age you plan to retire.</label>
+								<input type="number" id="retirement-calculation-form-retire-age" min="10" max="120" value="67" style="width:60px;text-align:center;">
+								<span class="description">If you were born in 1960 or later, 67 years old is the age in which you can retire with full benefits.</span>
+							</p>
+							<p>
+								<label for="retirement-calculation-form-savings">How much have you saved for retirement?</label>
+								<span class="unit unit-left">$</span> 
+								<input type="number" id="retirement-calculation-form-savings" value="20000" style="text-align:center;">
+								<span class="description">This should be the total of all your retirement accounts including 401Ks, IRAs, 403Bs, etc.</span>
+							</p>
+							<p>
+								<label for="retirement-calculation-form-monthly">How much will you contribute monthly?</label>
+								<span class="unit unit-left">$</span> 
+								<input type="number" id="retirement-calculation-form-monthly" min="0" value="350" style="width:80px;text-align:center;">
+								<span class="description">This is the amount you add to your retirement savings each month. Ideally, you should save 15% of your pay towards retirement.</span>
+							</p>
+							<p>
+								<label for="retirement-calculation-form-return">What do you think your annual return will be?</label>
+								<input type="number" id="retirement-calculation-form-return" min="0" step="0.10" value="6.00" style="width:60px;text-align:center;"> 
+								<span class="unit unit-right">%</span>
+								<span class="description">This is the return your investment will generate over time. Historically, the 30-year return of the S&amp;P 500 has been roughly 12%.</span>
+							</p>
+							<a class="btn btn-retirement-calculation-form-submit">Calculate</a>
+						</div>
+						<div class="retirement-calculation-result-wrapper" style="display:none;">
+							<div class="retirement-calculation-result-total-wrapper">
+								<h3>Your result</h3>
+								<div class="retirement-calculation-result-total-inner retirement-calculation-hidden-result">
+									<div class="copy">
+										<span>Estimated retirement savings</span><br>
+										<span class="retirement-calculation-result-total-years">In <span class="value">-</span> years, your investment could be worth:</span>
+									</div>
+									<span class="retirement-calculation-result-total-sum">$ <span class="value">-</span></span>
+								</div>
+								<div class="clear"></div>
+								<div class="retirement-calculation-result-pre-result-message">
+									Fill in your information to see your estimated retirement savings
+								</div>
+							</div>
+							<div class="retirement-calculation-result-breakdown-wrapper retirement-calculation-hidden-result">
+								<ul>
+									<li class="retirement-calculation-result-breakdown-initial">
+										<span class="title">Initial balance</span>
+										<span class="amount">$ <span class="value">-</span></span>
+										<span class="percentage"><span class="value">-</span> % of Total</span>
+									</li>
+									<li class="retirement-calculation-result-breakdown-contributions">
+										<span class="title">Contributions</span><span class="amount">$ <span class="value">-</span></span>
+										<span class="percentage"><span class="value">-</span> % of Total</span>
+									</li>
+									<li class="retirement-calculation-result-breakdown-growth">
+										<span class="title">Growth</span>
+										<span class="amount">$ <span class="value">-</span></span>
+										<span class="percentage"><span class="value">-</span> % of Total</span>
+									</li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<div class="retirement-calculation-result-chart-wrapper retirement-calculation-hidden-result">
+								<div class="retirement-calculation-result-chart" id="chartdiv" style="width: 100%;
+								height: 500px;">
+								</div>
+							</div>
+							
+						</div>
+						<div id="inputs-walkthrough" class="inputs-ct" style="width: 60%;left: 20%;"> 
+							<div id="step1" class="input ud-ss-e-yr state-D" data-name="ud-ss-e-yr" style="display: block;"> 
+								<div class="highlighter"> 
+									<div class="input-content sa-inputs"> 
+										<div class="input-progress"> 
+											<div class="input-mobile-position"></div> 
+											<span class="input-mobile-hrd">
+												<div class="walkthrough-profile"></div>
+											Add your details</span> 
+											<span class="input-progress-value">
+												<div class="complete" style="width: 20%;"></div>
+											</span> 
+										</div> 
+										
+										<div class="input-label-walkthrough">What is your current age?</div> 
+										<div class="input-inner-content"> 
+											<span class="input-info-walkthrough"></span> 
+											<input id="step1_input" type="text" name="ud-ss-e-yr" class="autonumeric" data-m-dec="0" data-v-max="99" data-a-dec="." data-a-sep="," data-old-value="66"> 
+											<div class="smartasset-ui input-padded-top"> 
+												<div class="input-slider extended ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+													<div class="extension"></div> 
+													<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 14.2857%;"></div>
+													<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 14.2857%;"></span>
+												</div> 
+											</div> 
+											<div>
+												<button class="next " onclick="getPage(2,0)">Next</button> 
+											</div>
+											<div class="input-expand-details"></div> 
+										</div>
+									</div> 
+									<div class="border-bottom"></div> 
+								</div>
+							</div>
+
+							<div id="step2" class="input ud-ss-e-yr state-D" data-name="ud-ss-e-yr" style="display: none;"> 
+								<div class="highlighter"> 
+									<div class="input-content sa-inputs"> 
+										<div class="input-progress"> 
+											<div class="input-mobile-position"></div> 
+											<span class="input-mobile-hrd"><div class="walkthrough-profile"></div>Add your details</span> 
+											<span class="input-progress-value"><div class="complete" style="width: 40%;"></div></span> 
+										</div> 
+										
+										<div class="input-label-walkthrough">When you plan to retire?</div> 
+										<div class="input-inner-content"> 
+											<span class="input-info-walkthrough">If you were born in 1960 or later, 67 years old is the age in which you can retire with full benefits.</span> 
+											<input id="step2_input" type="text" name="ud-ss-e-yr" class="autonumeric" data-m-dec="0" data-v-max="99" data-a-dec="." data-a-sep="," data-old-value="66"> 
+											<div class="smartasset-ui input-padded-top"> 
+												<div class="input-slider extended ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+													<div class="extension"></div> 
+													<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 14.2857%;"></div>
+													<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 14.2857%;"></span>
+												</div> 
+											</div> 
+											<script>
+												var val=$("#inputs-walkthrough .ud-ss-e-yr input").val();
+											</script>
+											<div>
+												<button class="next" onclick="getPage(3,0)">Next</button> 
+												<span class="input-back-link js-input-back-link"  style="display:inline;"  onclick="getPage(1,1)">Back</span> 
+											</div>
+											<div class="input-expand-details"></div> 
+										</div>
+									</div> 
+								</div> 
+							</div>
+							<div id="step3" class="input ud-ss-e-yr state-D" data-name="ud-ss-e-yr" style="display: none;"> 
+								<div class="highlighter"> 
+									<div class="input-content sa-inputs"> 
+										<div class="input-progress"> 
+											<div class="input-mobile-position"></div> 
+											<span class="input-mobile-hrd"><div class="walkthrough-profile"></div>Add your details</span> 
+											<span class="input-progress-value"><div class="complete" style="width: 60%;"></div></span> 
+										</div> 
+										
+										<div class="input-label-walkthrough">HOW MUCH HAVE YOU SAVED FOR RETIREMENT?</div> 
+										<div class="input-inner-content"> 
+											<span class="input-info-walkthrough">This should be the total of all your retirement accounts including 401Ks, IRAs, 403Bs, etc.</span> 
+											<input  id="step3_input" type="text" name="ud-ss-e-yr" class="autonumeric" data-m-dec="0" data-v-max="99999999"> 
+											<div class="smartasset-ui input-padded-top"> 
+												<div class="input-slider extended ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+													<div class="extension"></div> 
+													<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 14.2857%;"></div>
+													<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 14.2857%;"></span>
+												</div> 
+											</div> 
+											<script>
+												var val=$("#inputs-walkthrough .ud-ss-e-yr input").val();
+											</script>
+											<div>
+												<button class="next" onclick="getPage(4,0)">Next</button>
+												<span class="input-back-link js-input-back-link"  style="display:inline;" onclick="getPage(2,1)">Back</span> 
+											</div>
+											<div class="input-expand-details"></div> 
+										</div>
+									</div> 
+								</div> 
+							</div>
+							<div id="step4" class="input ud-ss-e-yr state-D" data-name="ud-ss-e-yr" style="display: none;"> 
+								<div class="highlighter"> 
+									<div class="input-content sa-inputs"> 
+										<div class="input-progress"> 
+											<div class="input-mobile-position"></div> 
+											<span class="input-mobile-hrd"><div class="walkthrough-profile"></div>Add your details</span> 
+											<span class="input-progress-value"><div class="complete" style="width: 80%;"></div></span> 
+										</div> 
+										
+										<div class="input-label-walkthrough">HOW MUCH WILL YOU CONTRIBUTE MONTHLY?</div> 
+										<div class="input-inner-content"> 
+											<span class="input-info-walkthrough">This is the amount you add to your retirement savings each month. Ideally, you should save 15% of your pay towards retirement.</span> 
+											<input id="step4_input" id="step4_input" type="text" name="ud-ss-e-yr" class="autonumeric" data-m-dec="0" data-v-max="99999999"> 
+											<div class="smartasset-ui input-padded-top"> 
+												<div class="input-slider extended ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+													<div class="extension"></div> 
+													<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 14.2857%;"></div>
+													<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 14.2857%;"></span>
+												</div> 
+											</div> 
+											<script>
+												var val=$("#inputs-walkthrough .ud-ss-e-yr input").val();
+											</script>
+											<div>
+												<button class="next" onclick="getPage(5,0)">Next</button>
+												<span class="input-back-link js-input-back-link"  style="display:inline;" onclick="getPage(3,1)">Back</span> 
+											</div>
+											<div class="input-expand-details"></div> 
+										</div>
+									</div> 
+								</div> 
+							</div>
+							<div id="step5" class="input ud-ss-e-yr state-D" data-name="ud-ss-e-yr" style="display: none;"> 
+								<div class="highlighter"> 
+									<div class="input-content sa-inputs"> 
+										<div class="input-progress"> 
+											<div class="input-mobile-position"></div> 
+											<span class="input-mobile-hrd"><div class="walkthrough-profile"></div>Add your details</span> 
+											<span class="input-progress-value"><div class="complete" style="width: 100%;"></div></span> 
+										</div> 
+										
+										<div class="input-label-walkthrough">WHAT DO YOU THINK YOUR ANNUAL RETURN WILL BE?</div> 
+										<div class="input-inner-content"> 
+											<span class="input-info-walkthrough">This is the return your investment will generate over time. Historically, the 30-year return of the S&P 500 has been roughly 12%.</span> 
+											<input id="step5_input" type="text" name="ud-ss-e-yr" class="autonumeric" data-m-dec="0" data-v-max="99" data-a-dec="." data-a-sep="," data-old-value="66"> 
+											<div class="smartasset-ui input-padded-top"> 
+												<div class="input-slider extended ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+													<div class="extension"></div> 
+													<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 14.2857%;"></div>
+													<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 14.2857%;"></span>
+												</div> 
+											</div> 
+											<script>
+												var val=$("#inputs-walkthrough .ud-ss-e-yr input").val();
+											</script>
+											<div>
+												<button class="next" onclick="getResult()">Calculate</button>
+												<span class="input-back-link js-input-back-link"  style="display:inline;" onclick="getPage(4,1)">Back</span> 
+											</div>
+											<div class="input-expand-details"></div> 
+										</div>
+									</div> 
+								</div> 
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<script>
+			function getPage(id, dir) {
+				if(dir == 0) {
+					idx = id - 1;
+					if($("#step"+idx+"_input").val() != "") {
+						$(".input.ud-ss-e-yr.state-D").hide();
+						$("#step"+id).show();
+					}
+				} else 
+				{
+					$(".input.ud-ss-e-yr.state-D").hide();
+					$("#step"+id).show();
+				}
+			}
+			function getResult() {
+				$("#inputs-walkthrough").hide();
+				$(".retirement-calculation-form-wrapper").show();
+				$(".retirement-calculation-result-wrapper").show();
+				
+				$("#retirement-calculation-form-age").val($("#step1_input").val());
+				$("#retirement-calculation-form-retire-age").val($("#step2_input").val());
+				$("#retirement-calculation-form-savings").val($("#step3_input").val());
+				$("#retirement-calculation-form-monthly").val($("#step4_input").val());
+				$("#retirement-calculation-form-return").val($("#step5_input").val());
+				$(".btn-retirement-calculation-form-submit").click();
+			}
+			$(".btn-retirement-calculation-form-submit").click();
+		</script>
+	</body>
+</html>
